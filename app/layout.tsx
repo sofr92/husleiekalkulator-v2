@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "Husleiekalkulator",
   description: "Sammenlign utgifter ved å leie eller kjøpe bolig. Enkel og visuell kalkulator.",
