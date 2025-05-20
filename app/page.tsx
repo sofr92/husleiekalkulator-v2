@@ -156,8 +156,7 @@ function Ressurser() {
   );
 }
 
-export default function Hjemmeside() {
-  useFont();
+
 export default function Hjemmeside() {
   useFont();
   return (
