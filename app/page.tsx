@@ -158,28 +158,44 @@ function Ressurser() {
 
 export default function Hjemmeside() {
   useFont();
+export default function Hjemmeside() {
+  useFont();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f2d2c2] via-[#fbe8de] to-[#e6b6a4] text-gray-900 px-4 py-6 sm:py-12">
-      <main className="max-w-3xl mx-auto space-y-12 sm:space-y-16">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center text-[#7b2d21] mb-8">
-  Husleiekalkulator – Leie vs Eie
-</h1>
+    <div className="min-h-screen bg-gradient-to-br from-[#f2d2c2] via-[#fbe8de] to-[#e6b6a4] text-gray-900 py-6 sm:py-12">
+      {/* Google AdSense-blokk */}
+      <div className="flex justify-center gap-6 px-4">
+        {/* Venstre annonse (skjult på mobil) */}
+        <div className="hidden lg:block w-60">
+          <ins className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-5278856821470925"
+              data-ad-slot="1234567890"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
+        </div>
 
-        <SammenligningLeieEie />
-        <DokumentavgiftEiendomsskatt />
-        {/* Google AdSense-blokk */}
-<div className="my-8">
-  <ins className="adsbygoogle"
-       style={{ display: "block", textAlign: "center" }}
-       data-ad-client="pub-5278856821470925"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
-</div>
+        {/* Hovedinnhold */}
+        <main className="max-w-3xl flex-1 space-y-12 sm:space-y-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-center text-[#7b2d21] mb-8">
+            Husleiekalkulator – Leie vs Eie
+          </h1>
+          <SammenligningLeieEie />
+          <DokumentavgiftEiendomsskatt />
+          <Ressurser />
+        </main>
 
-        <Ressurser />
-      </main>
+        {/* Høyre annonse (skjult på mobil) */}
+        <div className="hidden lg:block w-60">
+          <ins className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-5278856821470925"
+              data-ad-slot="2345678901"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
+          <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
+        </div>
+      </div>
     </div>
   );
 }
