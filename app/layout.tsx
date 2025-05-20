@@ -21,6 +21,11 @@ export default function RootLayout({
   return (
     <html lang="no">
       <head>
+        <script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5278856821470925"
+  crossOrigin="anonymous"
+></script>
         <meta name="description" content="Regn på hva det koster å leie eller eie bolig over tid." />
         <meta property="og:title" content="Husleiekalkulator" />
         <meta property="og:description" content="Sammenlign utgifter ved boligkjøp og leie." />
