@@ -167,6 +167,17 @@ export default function Hjemmeside() {
 
         <SammenligningLeieEie />
         <DokumentavgiftEiendomsskatt />
+        {/* Google AdSense-blokk */}
+<div className="my-8">
+  <ins className="adsbygoogle"
+       style={{ display: "block", textAlign: "center" }}
+       data-ad-client="pub-5278856821470925"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
+</div>
+
         <Ressurser />
       </main>
     </div>
