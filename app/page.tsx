@@ -161,6 +161,10 @@ export default function Hjemmeside() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f2d2c2] via-[#fbe8de] to-[#e6b6a4] text-gray-900 px-4 py-6 sm:py-12">
       <main className="max-w-3xl mx-auto space-y-12 sm:space-y-16">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center text-[#7b2d21] mb-8">
+  Husleiekalkulator – Leie vs Eie
+</h1>
+
         <SammenligningLeieEie />
         <DokumentavgiftEiendomsskatt />
         <Ressurser />
