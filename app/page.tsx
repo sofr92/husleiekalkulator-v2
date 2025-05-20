@@ -159,7 +159,7 @@ function Ressurser() {
 export default function Hjemmeside() {
   useFont();
   return (
-    <div className="min-h-screen bg-[url('/terracotta-pattern.png')] bg-cover bg-center text-gray-900 px-4 py-6 sm:py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#f2d2c2] via-[#fbe8de] to-[#e6b6a4] text-gray-900 px-4 py-6 sm:py-12">
       <main className="max-w-3xl mx-auto space-y-12 sm:space-y-16">
         <SammenligningLeieEie />
         <DokumentavgiftEiendomsskatt />
