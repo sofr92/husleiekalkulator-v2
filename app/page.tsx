@@ -1,3 +1,5 @@
+import SammenligningLeieEie from "./components/SammenligningLeieEie";
+
 "use client";
 
 /* Mobilvennlig kalkulatorside med terracotta-tema */
