@@ -1,9 +1,8 @@
-import SammenligningLeieEie from "./components/SammenligningLeieEie";
-
 "use client";
 
 /* Mobilvennlig kalkulatorside med terracotta-tema */
 
+import SammenligningLeieEie from "./components/SammenligningLeieEie";
 import { useEffect, useState } from "react";
 import jsPDF from "jspdf";
 
