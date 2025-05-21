@@ -12,7 +12,13 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
   const renteKost = laanebelop * (parseFloat(rente) / 100) * parseFloat(aar);
   const totalEie = renteKost;
 
-  const Input = ({ label, value, onChange }) => (
+  type InputProps = {
+    label: string;
+    value: string;
+    onChange: (val: string) => void;
+  };
+
+  const Input = ({ label, value, onChange }: InputProps) => (
     <label>
       {label}
       <input
