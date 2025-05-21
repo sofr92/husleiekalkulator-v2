@@ -168,7 +168,7 @@ export default function Hjemmeside() {
           <ins className="adsbygoogle"
               style={{ display: "block" }}
               data-ad-client="ca-pub-5278856821470925"
-              data-ad-slot="1234567890"
+              data-ad-slot="7070925323"
               data-ad-format="auto"
               data-full-width-responsive="true"></ins>
           <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
@@ -201,7 +201,7 @@ export default function Hjemmeside() {
           <ins className="adsbygoogle"
               style={{ display: "block" }}
               data-ad-client="ca-pub-5278856821470925"
-              data-ad-slot="2345678901"
+              data-ad-slot="7050502774"
               data-ad-format="auto"
               data-full-width-responsive="true"></ins>
           <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
