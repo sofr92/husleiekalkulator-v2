@@ -17,46 +17,6 @@ function useFont() {
   }, []);
 }
 
-function SammenligningLeieEie() {
-  const [leie, setLeie] = useState(12000);
-  const [kjopPris, setKjopPris] = useState(3500000);
-  const [egenkapital, setEgenkapital] = useState(500000);
-  const [rente, setRente] = useState(5);
-  const [aar, setAar] = useState(10);
-
-  const laanebelop = kjopPris - egenkapital;
-  const totalLeie = leie * 12 * aar;
-  const renteKost = laanebelop * (rente / 100) * aar;
-  const totalEie = renteKost;
-
-  return (
-    <section className="bg-[#fff5f0] border border-[#f0d6cc] p-4 sm:p-6 rounded-xl shadow">
-      <h2 className="text-xl font-bold mb-4 text-[#7b2d21]">Leie vs Eie (10 år)</h2>
-      <div className="grid gap-3">
-        <label>Månedlig leie (NOK)
-          <input type="number" value={leie} onChange={(e) => setLeie(Number(e.target.value))} className="w-full border rounded p-2" />
-        </label>
-        <label>Kjøpspris bolig (NOK)
-          <input type="number" value={kjopPris} onChange={(e) => setKjopPris(Number(e.target.value))} className="w-full border rounded p-2" />
-        </label>
-        <label>Egenkapital (NOK)
-          <input type="number" value={egenkapital} onChange={(e) => setEgenkapital(Number(e.target.value))} className="w-full border rounded p-2" />
-        </label>
-        <label>Rente (% per år)
-          <input type="number" value={rente} onChange={(e) => setRente(Number(e.target.value))} className="w-full border rounded p-2" />
-        </label>
-        <label>Antall år
-          <input type="number" value={aar} onChange={(e) => setAar(Number(e.target.value))} className="w-full border rounded p-2" />
-        </label>
-        <div className="bg-[#fbe8de] p-3 rounded mt-3 text-sm">
-          <p><strong>Totale leiekostnader:</strong> {totalLeie.toLocaleString()} kr</p>
-          <p><strong>Rentekostnader ved kjøp:</strong> {totalEie.toLocaleString()} kr</p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function DokumentavgiftEiendomsskatt() {
   const [kjopPris, setKjopPris] = useState(3000000);
   const [kommuneskatt, setKommuneskatt] = useState(0.0035);
