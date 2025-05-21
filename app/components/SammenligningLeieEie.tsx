@@ -8,8 +8,8 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
   const [aar, setAar] = useState("10");
 
   const laanebelop = parseFloat(kjopPris) - parseFloat(egenkapital);
-  const totalLeie = parseFloat(leie) * 12 * parseFloat(aar);
-  const renteKost = laanebelop * (parseFloat(rente) / 100) * parseFloat(aar);
+  const totalLeie = parseFloat(leie || "0") * 12 * parseFloat(aar || "0");
+  const renteKost = laanebelop * (parseFloat(rente || "0") / 100) * parseFloat(aar || "0");
   const totalEie = renteKost;
 
   type InputProps = {
@@ -19,13 +19,16 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
   };
 
   const Input = ({ label, value, onChange }: InputProps) => (
-    <label>
-      {label}
+    <label className="block">
+      <span className="text-sm text-gray-700">{label}</span>
       <input
         type={useTextInputs ? "text" : "number"}
+        inputMode="decimal"
+        pattern="[0-9]*"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border rounded p-2"
+        className="w-full border rounded p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#f0b8a4]"
+        placeholder="Skriv inn beløp"
       />
     </label>
   );
@@ -33,7 +36,7 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
   return (
     <section className="bg-[#fff5f0] border border-[#f0d6cc] p-4 sm:p-6 rounded-xl shadow">
       <h2 className="text-xl font-bold mb-4 text-[#7b2d21]">Leie vs Eie (10 år)</h2>
-      <div className="grid gap-3">
+      <div className="grid gap-4">
         <Input label="Månedlig leie (NOK)" value={leie} onChange={setLeie} />
         <Input label="Kjøpspris bolig (NOK)" value={kjopPris} onChange={setKjopPris} />
         <Input label="Egenkapital (NOK)" value={egenkapital} onChange={setEgenkapital} />
@@ -41,10 +44,11 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
         <Input label="Antall år" value={aar} onChange={setAar} />
 
         <div className="bg-[#fbe8de] p-3 rounded mt-3 text-sm">
-          <p><strong>Totale leiekostnader:</strong> {totalLeie.toLocaleString()} kr</p>
-          <p><strong>Rentekostnader ved kjøp:</strong> {totalEie.toLocaleString()} kr</p>
+          <p><strong>Totale leiekostnader:</strong> {isNaN(totalLeie) ? "-" : totalLeie.toLocaleString()} kr</p>
+          <p><strong>Rentekostnader ved kjøp:</strong> {isNaN(totalEie) ? "-" : totalEie.toLocaleString()} kr</p>
         </div>
       </div>
     </section>
   );
 }
+
