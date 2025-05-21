@@ -180,6 +180,18 @@ export default function Hjemmeside() {
             Husleiekalkulator – Leie vs Eie
           </h1>
           <SammenligningLeieEie />
+
+{/* Annonse mellom kalkulatorene */}
+<div className="my-6">
+  <ins className="adsbygoogle"
+       style={{ display: "block" }}
+       data-ad-client="ca-pub-5278856821470925"
+       data-ad-slot="4511360534"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script dangerouslySetInnerHTML={{ __html: `(adsbygoogle = window.adsbygoogle || []).push({});` }} />
+</div>
+
           <DokumentavgiftEiendomsskatt />
           <Ressurser />
         </main>
