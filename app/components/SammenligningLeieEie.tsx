@@ -7,9 +7,15 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
   const [rente, setRente] = useState("5");
   const [aar, setAar] = useState("10");
 
-  const laanebelop = parseFloat(kjopPris) - parseFloat(egenkapital);
-  const totalLeie = parseFloat(leie || "0") * 12 * parseFloat(aar || "0");
-  const renteKost = laanebelop * (parseFloat(rente || "0") / 100) * parseFloat(aar || "0");
+  const leieNum = parseFloat(leie);
+  const kjopPrisNum = parseFloat(kjopPris);
+  const egenkapitalNum = parseFloat(egenkapital);
+  const renteNum = parseFloat(rente);
+  const aarNum = parseFloat(aar);
+
+  const laanebelop = !isNaN(kjopPrisNum) && !isNaN(egenkapitalNum) ? kjopPrisNum - egenkapitalNum : NaN;
+  const totalLeie = !isNaN(leieNum) && !isNaN(aarNum) ? leieNum * 12 * aarNum : NaN;
+  const renteKost = !isNaN(laanebelop) && !isNaN(renteNum) && !isNaN(aarNum) ? laanebelop * (renteNum / 100) * aarNum : NaN;
   const totalEie = renteKost;
 
   type InputProps = {
@@ -18,20 +24,26 @@ export default function SammenligningLeieEie({ useTextInputs = false }) {
     onChange: (val: string) => void;
   };
 
-  const Input = ({ label, value, onChange }: InputProps) => (
-    <label className="block">
-      <span className="text-sm text-gray-700">{label}</span>
-      <input
-        type={useTextInputs ? "text" : "number"}
-        inputMode="decimal"
-        pattern="[0-9]*"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full border rounded p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#f0b8a4]"
-        placeholder="Skriv inn beløp"
-      />
-    </label>
-  );
+  const Input = ({ label, value, onChange }: InputProps) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      requestAnimationFrame(() => onChange(e.target.value));
+    };
+
+    return (
+      <label className="block">
+        <span className="text-sm text-gray-700">{label}</span>
+        <input
+          type={useTextInputs ? "text" : "number"}
+          inputMode="decimal"
+          pattern="[0-9]*"
+          value={value}
+          onChange={handleChange}
+          className="w-full border rounded p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#f0b8a4]"
+          placeholder="Skriv inn beløp"
+        />
+      </label>
+    );
+  };
 
   return (
     <section className="bg-[#fff5f0] border border-[#f0d6cc] p-4 sm:p-6 rounded-xl shadow">
